@@ -1,18 +1,13 @@
 import os
-from dotenv import load_dotenv
 from google import genai
+from config import GOOGLE_API_KEY
 
-load_dotenv()
-
-api_key = os.getenv("GOOGLE_API_KEY")
-
-if not api_key:
-    raise ValueError("GOOGLE_API_KEY Not found")
+print(GOOGLE_API_KEY)
 
 print("API Key Load Success")
-print(f"Key Started: {api_key[:10]}...")
+print(f"Key Started: {GOOGLE_API_KEY[:10]}...")
 
-client = genai.Client(api_key=api_key)
+client = genai.Client(api_key=GOOGLE_API_KEY)
 
 models = client.models.list()
 
